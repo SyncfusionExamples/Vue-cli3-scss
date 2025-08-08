@@ -1,0 +1,456 @@
+// SCSS Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$info-color: #17a2b8;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// Button colors
+$btn-primary-bg: $primary-color;
+$btn-success-bg: $success-color;
+$btn-info-bg: $info-color;
+
+// Spacing
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 15px;
+$spacing-lg: 20px;
+$spacing-xl: 30px;
+
+// Font sizes
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+
+// Import Syncfusion styles
+@import "~@syncfusion/ej2-base/styles/material.css";
+@import "~@syncfusion/ej2-buttons/styles/material.css";
+@import "~@syncfusion/ej2-grids/styles/material.css";
+@import "~@syncfusion/ej2-vue-notifications/styles/material.css";
+
+// Main App Styles
+#App {
+  padding: $spacing-lg;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $light-color;
+  min-height: 100vh;
+
+  // Section Styles
+  .button-section, 
+  .badge-section, 
+  .grid-section {
+    margin-bottom: $spacing-xl;
+    padding: $spacing-md;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: $dark-color;
+      margin-bottom: $spacing-md;
+      font-weight: 600;
+      font-size: $font-size-lg;
+      border-bottom: 2px solid $primary-color;
+      padding-bottom: $spacing-sm;
+    }
+  }
+
+  // Button Group Styles
+  .button-group {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    .e-btn {
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &.e-success {
+        background-color: $btn-success-bg;
+        border-color: $btn-success-bg;
+        color: white;
+
+        &:hover {
+          background-color: darken($btn-success-bg, 10%);
+          border-color: darken($btn-success-bg, 10%);
+        }
+      }
+
+      &.e-info {
+        background-color: $btn-info-bg;
+        border-color: $btn-info-bg;
+        color: white;
+
+        &:hover {
+          background-color: darken($btn-info-bg, 10%);
+          border-color: darken($btn-info-bg, 10%);
+        }
+      }
+    }
+  }
+
+  // Badge Container Styles
+  .badge-container {
+    display: flex;
+    gap: $spacing-lg;
+    flex-wrap: wrap;
+
+    .badge-item {
+      position: relative;
+      display: inline-block;
+
+      .e-btn {
+        border-radius: 6px;
+        font-weight: 500;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .e-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: bold;
+        min-width: 22px;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+        &.e-badge-info {
+          background-color: $info-color;
+        }
+
+        &.e-badge-success {
+          background-color: $success-color;
+        }
+
+        &.e-badge-secondary {
+          background-color: $secondary-color;
+        }
+
+        // Handle larger numbers (2+ digits)
+        &.large-number {
+          min-width: 28px;
+          width: auto;
+          padding: 0 6px;
+          border-radius: 11px;
+        }
+      }
+    }
+  }
+
+  // Grid Section Styles
+  .grid-section {
+    .e-grid {
+      margin-top: $spacing-sm;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+      .e-gridheader {
+        background-color: $primary-color;
+        color: white;
+
+        .e-headercell {
+          font-weight: 600;
+          border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      .e-row {
+        &:nth-child(even) {
+          background-color: #f8f9fa;
+        }
+
+        &:hover {
+          background-color: lighten($primary-color, 45%);
+        }
+      }
+
+      // Enhanced Pager Styling
+      .e-pager {
+        background-color: white;
+        border-top: 1px solid #dee2e6;
+        padding: $spacing-md;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-xs;
+
+        .e-pagercontainer {
+          display: flex;
+          align-items: center;
+          gap: $spacing-xs;
+
+          // Navigation Buttons (First, Previous, Next, Last)
+          .e-first, .e-prev, .e-next, .e-last {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: $primary-color;
+
+            &:hover:not(.e-disable) {
+              background-color: $primary-color;
+              color: white;
+              border-color: $primary-color;
+              transform: translateY(-1px);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            &.e-disable {
+              background-color: #f8f9fa;
+              color: #6c757d;
+              cursor: not-allowed;
+              opacity: 0.6;
+            }
+          }
+
+          // Numeric Container
+          .e-numericcontainer {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin: 0 $spacing-sm;
+          }
+
+          // Pagination Links
+          .e-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background-color: white;
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover:not(.e-disable):not(.e-currentitem) {
+              background-color: lighten($primary-color, 45%);
+              border-color: $primary-color;
+              transform: translateY(-1px);
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            &.e-currentitem {
+              background-color: $primary-color;
+              color: white;
+              border-color: $primary-color;
+              font-weight: 600;
+              box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+            }
+
+            &.e-disable {
+              background-color: #f8f9fa;
+              color: #6c757d;
+              cursor: not-allowed;
+              opacity: 0.6;
+              
+              &:hover {
+                transform: none;
+                box-shadow: none;
+              }
+            }
+
+            // Previous/Next page items (...)
+            &.e-pp, &.e-np {
+              font-weight: 600;
+              color: $secondary-color;
+
+              &:hover:not(.e-disable) {
+                background-color: lighten($secondary-color, 40%);
+                border-color: $secondary-color;
+              }
+            }
+          }
+
+          // Spacing for numeric items
+          .e-numericitem {
+            margin: 0 1px;
+
+            &.e-spacing {
+              margin: 0 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  #App {
+    padding: $spacing-sm;
+
+    .button-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .badge-container {
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+  }
+}
+
+// Additional Component Styles
+.e-btn {
+  &.e-primary {
+    background-color: $btn-primary-bg;
+    border-color: $btn-primary-bg;
+    color: white;
+
+    &:hover {
+      background-color: darken($btn-primary-bg, 10%);
+      border-color: darken($btn-primary-bg, 10%);
+    }
+  }
+
+  &.e-warning {
+    background-color: $warning-color;
+    border-color: $warning-color;
+    color: $dark-color;
+
+    &:hover {
+      background-color: darken($warning-color, 10%);
+      border-color: darken($warning-color, 10%);
+    }
+  }
+
+  &.e-danger {
+    background-color: $danger-color;
+    border-color: $danger-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($danger-color, 10%);
+      border-color: darken($danger-color, 10%);
+    }
+  }
+}
+
+// Badge Variants
+.e-badge {
+  &.e-badge-primary {
+    background-color: $primary-color;
+  }
+
+  &.e-badge-warning {
+    background-color: $warning-color;
+    color: $dark-color;
+  }
+
+  &.e-badge-danger {
+    background-color: $danger-color;
+  }
+
+  &.e-badge-light {
+    background-color: $light-color;
+    color: $dark-color;
+  }
+
+  &.e-badge-dark {
+    background-color: $dark-color;
+  }
+}
+
+// Custom Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Animation Classes
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+.p-1 { padding: $spacing-xs; }
+.p-2 { padding: $spacing-sm; }
+.p-3 { padding: $spacing-md; }
+.p-4 { padding: $spacing-lg; }
+.p-5 { padding: $spacing-xl; }

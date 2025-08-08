@@ -1,8 +1,12 @@
-import Vue from "vue";
-import App from "./App.vue";
+import { createApp } from 'vue'
+import App from './App.vue'
+import { ButtonPlugin } from '@syncfusion/ej2-vue-buttons'
+import { GridPlugin } from "@syncfusion/ej2-vue-grids"
 
-Vue.config.productionTip = false;
+const app = createApp(App)
 
-new Vue({
-  render: (h: any) => h(App)
-}).$mount("#app");
+// Register Syncfusion plugins
+app.use(ButtonPlugin)
+app.use(GridPlugin)
+
+app.mount('#app')
