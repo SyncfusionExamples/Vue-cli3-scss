@@ -28,4 +28,4 @@ Run the application by using following command:
 
 Open your browser and navigate to http://localhost:8080 to view the app.
 
-**Documentation link -** https://ej2.syncfusion.com/vue/documentation/getting-started/vue-sass/
+**Documentation link -** https://ej2.syncfusion.com/vue/documentation/getting-started/vue-3-vue-cli-scss
